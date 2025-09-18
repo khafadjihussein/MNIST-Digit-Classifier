@@ -6,3 +6,14 @@ mnist_cnn.pt
 data/
 tests/data/*.png
 !tests/data/.gitkeep
+
+# Node/React frontend
+ui/node_modules/
+ui/dist/
+ui/.env
+ui/.env.local
+ui/.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
