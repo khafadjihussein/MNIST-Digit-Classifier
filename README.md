@@ -82,6 +82,19 @@ npm run dev
 # open http://127.0.0.1:5173
 ```
 
+# RUN SERVER (Backend + Frontend)
+
+.\.venv\Scripts\Activate
+uvicorn api:app --reload
+
+cd ui
+npm run dev
+
+# Open in browser:
+# http://127.0.0.1:5173        (Frontend UI)
+# http://127.0.0.1:8000/docs   (API Docs)
+# http://127.0.0.1:8000/healthz (Health Check)
+
 ### Docker Compose
 
 ```powershell
