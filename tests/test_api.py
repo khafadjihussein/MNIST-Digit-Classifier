@@ -30,4 +30,5 @@ def test_predict_valid():
     assert "digit" in data and "confidence" in data
     assert isinstance(data["digit"], int)
     assert 0 <= data["digit"] <= 9
+    assert data["digit"] == 3
     assert 0.0 <= data["confidence"] <= 1.0

@@ -39,7 +39,6 @@ async def predict(file: UploadFile = File(...)):
     try:
         content = await file.read()
         img = Image.open(io.BytesIO(content))
-        img.save("debug_input.png")  # Save uploaded image for debugging
     except (UnidentifiedImageError, Exception):
         raise HTTPException(status_code=400, detail="Invalid image file.")
     pred = get_predictor()

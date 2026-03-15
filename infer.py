@@ -36,7 +36,16 @@ class Predictor:
             probs: list of float (len=10)
         """
         img = pil_image.convert("L")
-        img = ImageOps.invert(img)
+        w, h = img.size
+        # Estimate background color from the four corners
+        corners = [
+            img.getpixel((0, 0)),
+            img.getpixel((w-1, 0)),
+            img.getpixel((0, h-1)),
+            img.getpixel((w-1, h-1))
+        ]
+        if sum(corners) / 4 > 127:  # Light background
+            img = ImageOps.invert(img)
         img = self.tfm(img)
         img = img.unsqueeze(0).to(self.device)
         logits = self.model(img)
